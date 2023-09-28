@@ -1,0 +1,22 @@
+body{
+    background-color: #94c792;
+    text-align:center;
+    font-family: Tahoma;
+    margin-top: 10px;
+}
+
+h1{
+    style:"color: black";
+    text-align:center;
+    font-family: Tahoma;
+    margin-top: 10px;
+}
+
+table, td, th{
+    background-color: white;
+    text-align: center;
+    border: 1px outset black;
+    width: 500px;
+    align: center;
+}
+

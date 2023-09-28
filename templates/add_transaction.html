@@ -1,0 +1,39 @@
+{% load static %}
+<title>Stocks App - add a transaction</title>
+<link rel="stylesheet" href="{%  static 'style.css' %}">
+    <a href="index">Home</a>
+    <a href="query_results">Query Results</a>
+    <a href="buy_stocks">Buy Stocks</a>
+<H1>Stocks App - add a transaction</H1>
+<form method="POST">
+    {% csrf_token %}
+    <p>Add New Transaction:</p>
+    ID: <input type="number" name="id" minlength="1" maxlength="9" required><br>
+    Transaction Sum: <input type="number" name="tquantity" min="0" required><br>
+    <input type="submit">
+    <br>
+    <br>
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-danger" role="alert">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endif %}
+
+    <br>
+    <p>Last 10 Transactions:</p>
+        <table border="1" width="15%" bgcolor="#faebd7" align="center">
+        <th>Date</th>
+        <th>Investor ID</th>
+        <th>Transaction Sum</th>
+            {% for record in sql_res4 %}
+                <tr>
+                <td>{{ record.tdate }} </td>
+                <td>{{ record.id }} </td>
+                <td>{{ record.tquantity }} </td>
+                </tr>
+            {% endfor %}
+        </table><br>
+    <br>
+</form>

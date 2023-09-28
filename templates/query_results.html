@@ -1,0 +1,50 @@
+{% load static %}
+<title>Stocks App - Query Results</title>
+<link rel="stylesheet" href="{%  static 'style.css' %}">
+<a href="index">Home</a>
+<a href="buy_stocks">Buy Stocks</a>
+<a href="add_transaction">Add Transaction</a>
+<h1>Stocks App - Query result</h1>
+<form method="POST">
+    <p>Query 1:</p>
+        <table border="1" width="15%" bgcolor="#faebd7" align="center">
+        <th>Name</th>
+        <th>Total Sum</th>
+            {% for record in sql_res1 %}
+                <tr>
+                <td>{{ record.Name }} </td>
+                <td>{{ record.Total_Sum }} </td>
+                </tr>
+            {% endfor %}
+        </table><br>
+    <br>
+    <p>Query 2:</p>
+        <table border="1" width="15%" bgcolor="#faebd7" align="center">
+        <th>Symbol</th>
+        <th>Name</th>
+        <th>Quantity</th>
+            {% for record in sql_res2 %}
+                <tr>
+                <td>{{ record.symbol }} </td>
+                <td>{{ record.name }} </td>
+                <td>{{ record.quantity }} </td>
+                </tr>
+            {% endfor %}
+        </table><br>
+    <br>
+    <p>Query 3:</p>
+        <table border="1" width="15%" bgcolor="#faebd7" align="center">
+        <th>Date</th>
+        <th>Symbol</th>
+        <th>Buyer Id</th>
+            {% for record in sql_res3 %}
+                <tr>
+                <td>{{ record.tdate }} </td>
+                <td>{{ record.symbol }} </td>
+                <td>{{ record.name }} </td>
+                </tr>
+            {% endfor %}
+        </table><br>
+    <br>
+
+</form>
